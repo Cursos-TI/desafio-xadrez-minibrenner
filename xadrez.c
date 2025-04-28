@@ -32,6 +32,7 @@ char peca;
          printf("Bispo: se movimenta 5 casas na diagonal.\n");
          printf("Torre: se movimenta 5 casas para a direita.\n");
          printf("Rainha: se movimenta 8 casas para a esquerda.\n");
+         printf ("Cavalo se movimenta duas vezes para baixo e uma casa para a esquerda\n");
          break;
 
           case 1:
@@ -41,6 +42,7 @@ char peca;
           printf ("R. Para a rainha\n");
           printf ("B. para o bispo\n");
           printf ("T. para a Torre\n");
+          printf ("C. Para o Cavalo");
           scanf (" %c", &peca);
             
           if (peca == 'T' || peca == 't'){
@@ -66,6 +68,15 @@ char peca;
                 printf ("Rainha para a esquerda\n");
                 i++;
                }while (i<= 8);
+               }
+               else if (peca == 'C' || peca == 'c') // Peça do cavlo, usando for, para repetir a funçao baixo duas x e a funçao esquerda fora da chave uma vez.
+            {
+               printf ("Movimentando o cavalo duas casas para baixo e uma casa para a esquerda!\n");
+               for (int i = 0; i < 2; i++)
+               {
+                printf ("Cavalo para baixo\n");
+               }
+               printf ("Cavalo para esquerda\n");
                }
             else {
                 printf ("Peça invalida!!\n");
