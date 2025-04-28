@@ -2,6 +2,35 @@
 #include <stdlib.h>
 #include <time.h>
 
+void movertorre (int casas){
+    if (casas > 0) {
+        printf (" Torre para direita!\n");
+        movertorre (casas -1);
+    }
+}
+
+void moverbispo (int casas){
+    if (casas > 0){
+        printf (" Bispo na diagonal superior direita\n");
+        moverbispo (casas -1);
+    }
+}
+void moverrainha (int casas){
+    if (casas > 0){
+        printf (" Rainha para a esquerda\n");
+        moverrainha (casas -1);
+    }
+}
+    void movercavalo (int casas){
+        if (casas > 0){
+            printf (" cavalo para baixo \n");
+            movercavalo (casas -1);
+        } else if (casas == 0){
+            printf (" Cavalo para a esquerda");
+        }
+    }
+
+
 // Realizar um jogo de xadrez, onde as peças se movimentem, e use o printf para demonstrar o caminho de cada peça.
 // Bispo 5 casas na diagonal superior direita (While)
 // Torre 5 casas para  a direita (for)
@@ -42,41 +71,46 @@ char peca;
           printf ("R. Para a rainha\n");
           printf ("B. para o bispo\n");
           printf ("T. para a Torre\n");
-          printf ("C. Para o Cavalo");
+          printf ("C. Para o Cavalo\n");
           scanf (" %c", &peca);
             
           if (peca == 'T' || peca == 't'){
             printf ("Movendo a torre 5 casas para a direita:\n");
-           for (int i = 1; i<= 5;i++) {
-                printf (" Torre para a direita\n");
-            }
+           movertorre (5);
+           
+            //for (int i = 1; i<= 5;i++) {
+                //printf (" Torre para a direita\n");
+            //}
           }
-          else if ( peca == 'B' || peca == 'b')
-          {
+            else if ( peca == 'B' || peca == 'b'){
             printf ("Movendo o bispo 5 casas para a diagonal superior direita\n");
-            int i = 1;
-            while (i <=5){
-                printf ("Bispo para a diagonal superior direita\n");
-                i++;
-            }
+            //int i = 1;
+            //while (i <=5){
+                //printf ("Bispo para a diagonal superior direita\n");
+                //i++;
+
+                moverbispo (5);
+          
         }
-            else if (peca == 'R' || peca == 'r')
-            {
+            else if (peca == 'R' || peca == 'r'){
                printf ("Movimentando rainha 8 casas a esquerda!\n");
-               int i =1;
-               do {
-                printf ("Rainha para a esquerda\n");
-                i++;
-               }while (i<= 8);
+               //int i =1;
+              // do {
+                //printf ("Rainha para a esquerda\n");
+                //i++;
+               //}while (i<= 8);
+               moverrainha (8);
                }
-               else if (peca == 'C' || peca == 'c') // Peça do cavlo, usando for, para repetir a funçao baixo duas x e a funçao esquerda fora da chave uma vez.
+            else if (peca == 'C' || peca == 'c') // Peça do cavlo, usando for, para repetir a funçao baixo duas x e a funçao esquerda fora da chave uma vez.
             {
-               printf ("Movimentando o cavalo duas casas para baixo e uma casa para a esquerda!\n");
-               for (int i = 0; i < 2; i++)
-               {
-                printf ("Cavalo para baixo\n");
-               }
-               printf ("Cavalo para esquerda\n");
+               //printf ("Movimentando o cavalo duas casas para baixo e uma casa para a esquerda!\n");
+               //for (int i = 0; i < 2; i++)
+               //{
+                //printf ("Cavalo para baixo\n");
+              // }
+               //printf ("Cavalo para esquerda\n");
+
+               movercavalo (2);
                }
             else {
                 printf ("Peça invalida!!\n");
